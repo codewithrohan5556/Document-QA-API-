@@ -71,7 +71,8 @@ document-qa-api/
 │   │
 │   ├── models/
 │   │   ├── requests.py            # QueryRequest
-│   │   ├── responses.py           # UploadResponse,ConversationEntry,StatsResponse,│   │   └── database.py            # ConversationRecord (PostgreSQL schema mirror)
+│   │   ├── responses.py           # UploadResponse,ConversationEntry,StatsResponse,│   
+│   └── database.py            # ConversationRecord (PostgreSQL schema mirror)
 │   │
 │   ├── services/
 │   │   ├── document_service.py    # File validation, page-aware text extraction
@@ -351,7 +352,7 @@ Chunk per page (1000 chars, 200 overlap)
   ↓
 Embed each chunk (NVIDIA via OpenRouter, 2048 dims)
   ↓
-Store vectors + metadata (ChromaDB or Pinecone)
+Store vectors + metadata (Pinecone)
 ```
 
 Metadata stored per chunk: `document_id`, `filename`, `page_number`, `chunk_id`, `source`, `text`.
