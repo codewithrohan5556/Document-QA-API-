@@ -1,0 +1,32 @@
+# --- Backend ---
+fastapi==0.115.0
+starlette==0.38.6
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-multipart==0.0.9
+
+# --- RAG ---
+langchain==0.3.1
+langchain-community==0.3.1
+langchain-openai==0.2.1
+langsmith==0.1.147
+pypdf==4.3.1
+
+# --- LLM / Embeddings ---
+openai==1.51.0
+
+# --- Vector database (Phase 2) ---
+pinecone==5.4.2
+
+# --- Database ---
+asyncpg==0.30.0
+
+# --- Config / env ---
+python-dotenv==1.0.1
+
+# --- Testing ---
+pytest==8.3.3
+pytest-asyncio==0.24.0
+httpx==0.27.2
+reportlab==4.2.5

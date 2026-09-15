@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Data / generated
+data/chroma/
+data/uploads/
+*.log
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Tests
+.pytest_cache/

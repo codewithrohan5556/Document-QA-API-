@@ -1,0 +1,32 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Virtual envs (never bake a host venv into the image)
+.venv/
+venv/
+
+# Secrets — never baked into the image; passed at runtime via env_file/-e
+.env
+
+# Local data — replaced by named volumes in docker-compose.yml
+data/chroma/
+data/uploads/
+*.log
+
+# Tests aren't needed at runtime
+tests/
+
+# Manual-testing utilities (Streamlit UI) — not part of the API image
+tools/
+
+# Editor/OS cruft
+.vscode/
+.idea/
+.DS_Store

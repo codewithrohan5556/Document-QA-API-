@@ -1,0 +1,46 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # These two override whatever's in .env on purpose:
+      #   - POSTGRES_DSN must point at the "postgres" service name, not
+      #     localhost/127.0.0.1 — containers reach each other by service
+      #     name on the compose network, never by host-machine addresses.
+      #   - CHROMA_PERSIST_DIR must point inside the container filesystem
+      #     path that the chroma_data volume below is actually mounted at.
+      POSTGRES_DSN: postgresql://postgres:postgres@postgres:5432/document_qa
+      CHROMA_PERSIST_DIR: /app/data/chroma
+    volumes:
+      - chroma_data:/app/data/chroma
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: document_qa
+    ports:
+      # Exposed to the host too (not just the api service) so you can
+      # `psql` in directly to inspect the conversations table while
+      # debugging — remove this mapping if that's not needed.
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+  postgres_data:
