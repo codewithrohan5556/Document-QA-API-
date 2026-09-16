@@ -22,6 +22,11 @@ A production-style **Retrieval-Augmented Generation (RAG)** backend that lets us
 
 <p align="center">  <img src="images/Architecture.png" alt="" width="100%"></p>
 
+## User Interface
+<p align="center">  <img src="images/UI1.png" alt="" width="100%"></p>
+<p align="center">  <img src="images/UI2.png" alt="" width="100%"></p>
+
+
 ### Request pipeline
 
 ```
@@ -70,9 +75,9 @@ document-qa-api/
 │   │   └── conversations.py       # GET /conversations/{session_id}
 │   │
 │   ├── models/
-│   │   ├── requests.py            # QueryRequest
-│   │   ├── responses.py           # UploadResponse,ConversationEntry,StatsResponse,│   
-│   └── database.py            # ConversationRecord (PostgreSQL schema mirror)
+│   │   ├── requests.py          # QueryRequest
+│   │   ├── responses.py         # UploadResponse,ConversationEntry,StatsResponse,   
+│   │   └── database.py          # ConversationRecord (PostgreSQL schema mirror)
 │   │
 │   ├── services/
 │   │   ├── document_service.py    # File validation, page-aware text extraction
