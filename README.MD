@@ -108,20 +108,6 @@ document-qa-api/
 │       └── helpers.py             # generate_document_id()
 │
 ├── tests/
-│   ├── conftest.py                # Shared fixtures (FakePostgresPool)
-│   ├── test_health.py
-│   ├── test_documents.py
-│   ├── test_query.py
-│   ├── test_retrieval.py
-│   ├── test_rag_service.py
-│   ├── test_citations.py
-│   ├── test_conversation_service.py
-│   ├── test_conversations.py
-│   ├── test_vectorstores.py
-│   ├── test_pinecone_vectorstore.py
-│   ├── test_ingestion_service.py
-│   ├── test_error_handling.py
-│   └── test_end_to_end_smoke.py
 │
 ├── tools/
 │   ├── streamlit_app.py           # Manual testing UI (separate venv)
